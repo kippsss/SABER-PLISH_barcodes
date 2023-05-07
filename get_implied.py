@@ -74,10 +74,6 @@ def main():
                                     default=None, type=str, 
                                     help="""Specify the implied barcode output FASTA filepath (e.g. 42mer_k14_implied.fa)
                                     """)
-    # required_arguments.add_argument('-c', '--combi_output', action='store', required=True,
-    #                                 default=None, type=str, 
-    #                                 help="""Specify the output TSV filepath with all nb-probe-implied barcode combinations (e.g. combi.tsv)
-    #                                 """)
     
     args = user_input.parse_args()
     check_args(args)
