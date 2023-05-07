@@ -2,6 +2,7 @@ import argparse
 from pathlib import Path
 import math
 import random
+import csv
 from Bio.Seq import Seq
 from Bio import SeqIO
 
@@ -14,8 +15,8 @@ def check_args(args):
         raise Exception("Probe barcode input file must be a FASTA file (.fa).")
     if not args.implied_output.endswith(".fa") and not args.implied_output.endswith(".fasta"):
         raise Exception("Implied barcode output file must be a FASTA file (.fa).")
-    # if not args.implied_output.endswith(".tsv"):
-    #     raise Exception("Nanobody-Probe-Implied barcode combi output file must be a TSV file (.tsv).")
+    if not args.combi_output.endswith(".tsv"):
+        raise Exception("Nanobody-Probe-Implied barcode combi output file must be a TSV file (.tsv).")
     
 def check_file_exists(output_filepath):
     file = Path(output_filepath)
@@ -39,23 +40,26 @@ def check_length(nb_bc_seq, probe_bc_seq):
 def get_implied(params):
 
     with open(params.get("implied_output_filepath"), "w") as implied_output_filepath:
-        implied_output_count = 0
+        with open(params.get("combi_output_filepath"), "w") as combi_output_filepath:
+            implied_output_count = 0
+            output_writer = csv.writer(combi_output_filepath, delimiter="\t")
+            output_writer.writerow(["NB_BARCODE_ID", "NB_BARCODE_SEQ", "PROBE_BARCODE_ID", "PROBE_BARCODE_SEQ", "IMPLIED_BARCODE_ID", "IMPLIED_BARCODE_SEQ"])
+            for nb_line in SeqIO.parse(open(params.get("nb_input_filepath")),'fasta'):
+                for probe_line in SeqIO.parse(open(params.get("probe_input_filepath")),'fasta'):
+                    nb_id, nb_seq = nb_line.id, str(nb_line.seq)
+                    probe_id, probe_seq = probe_line.id, str(probe_line.seq)
+                    implied_id = f"{nb_id}_{probe_id}"
+                    length = check_length(nb_seq, probe_seq)
+                    half_length = int(length / 2)
+                    nb_half = nb_seq[half_length:]
+                    probe_half = probe_seq[:half_length]
+                    
+                    implied_seq_rc = nb_half + probe_half
+                    implied_seq = str(Seq(implied_seq_rc).reverse_complement())
 
-        for nb_line in SeqIO.parse(open(params.get("nb_input_filepath")),'fasta'):
-            for probe_line in SeqIO.parse(open(params.get("probe_input_filepath")),'fasta'):
-                nb_id, nb_seq = nb_line.id, str(nb_line.seq)
-                probe_id, probe_seq = probe_line.id, str(probe_line.seq)
-                implied_id = f"{nb_id}_{probe_id}"
-                length = check_length(nb_seq, probe_seq)
-                half_length = int(length / 2)
-                nb_half = nb_seq[half_length:]
-                probe_half = probe_seq[:half_length]
-                
-                implied_seq_rc = nb_half + probe_half
-                implied_seq = str(Seq(implied_seq_rc).reverse_complement())
-
-                implied_output_filepath.write(f">{implied_id}\n{implied_seq}\n")
-                implied_output_count += 1
+                    implied_output_filepath.write(f">{implied_id}\n{implied_seq}\n")
+                    output_writer.writerow([nb_id, nb_seq, probe_id, probe_seq, implied_id, implied_seq])
+                    implied_output_count += 1
 
     print(f"Number of Implied barcodes derived: {implied_output_count}")
 
@@ -74,16 +78,20 @@ def main():
                                     default=None, type=str, 
                                     help="""Specify the implied barcode output FASTA filepath (e.g. 42mer_k14_implied.fa)
                                     """)
+    required_arguments.add_argument('-t', '--combi_output', action='store', required=False,
+                                    default=None, type=str, 
+                                    help="""Specify the combinations of NANOBODY and PROBE barcodes to get the IMPLIED barcodes (e.g. 42mer_k14_combi.tsv)
+                                    """)
     
     args = user_input.parse_args()
     check_args(args)
     check_file_exists(args.implied_output)
-    # check_file_exists(args.combi_output)
+    check_file_exists(args.combi_output)
     params = {}
     params["nb_input_filepath"] = args.nb_input
     params["probe_input_filepath"] = args.probe_input
     params["implied_output_filepath"] = args.implied_output
-    # params["combi_output_filepath"] = args.combi_output
+    params["combi_output_filepath"] = args.combi_output
     get_implied(params)
 
 if __name__ == '__main__':

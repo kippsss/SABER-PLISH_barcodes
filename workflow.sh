@@ -65,7 +65,7 @@ python3 assign_bc.py -f ${basedir}/${basename}_com_bt_rcfree.fa -n ${basedir}/${
 printf "\n"
 
 printf "STEP 6: Generate starting IMPLIED barcode library by cross-joining NANOBODY barcode and PROBE barcode libraries \n"
-python3 get_implied.py -n ${basedir}/${basename}_nb_pre.fa -p ${basedir}/${basename}_probe_pre.fa -o ${basedir}/${basename}_implied_pre.fa
+python3 get_implied.py -n ${basedir}/${basename}_nb_pre.fa -p ${basedir}/${basename}_probe_pre.fa -o ${basedir}/${basename}_implied_pre.fa -t ${basedir}/${basename}_combi_pre.tsv
 
 printf "STEP 7: Align IMPLIED barcode sequences to the human genome with Bowtie2 and remove corresponding NANOBODY and PROBE barcodes whose IMPLIED barcode aligns  \n"
 bowtie2 -x ${ref_genome} -f ${basedir}/${basename}_implied_pre.fa --no-hd -t -k 100 --very-sensitive-local -S ${basedir}/${basename}_implied_pre_bt.sam
@@ -74,9 +74,10 @@ python3 get_corresponding_unaligned.py -i ${basedir}/${basename}_implied_pre_bt.
 printf "\n"
 
 printf "STEP 8: Re-generate IMPLIED barcode library by cross-joining final NANOBODY barcode and final PROBE barcode libraries \n"
-python3 get_implied.py -n ${basedir}/${basename}_nb.fa -p ${basedir}/${basename}_probe.fa -o ${basedir}/${basename}_implied.fa
+python3 get_implied.py -n ${basedir}/${basename}_nb.fa -p ${basedir}/${basename}_probe.fa -o ${basedir}/${basename}_implied.fa -t ${basedir}/${basename}_combi.tsv
 printf "\n"
 
 printf "Final NANOBODY barcode library file: ${basedir}/${basename}_nb.fa \n"
 printf "Final PROBE barcode library file: ${basedir}/${basename}_probe.fa \n"
 printf "Final IMPLIED barcode library file: ${basedir}/${basename}_implied.fa \n"
+printf "Final .tsv file with all NANOBODY-PROBE-IMPLIED barcode combinations: ${basedir}/${basename}_combi.tsv \n"
