@@ -75,3 +75,9 @@ Lastly, from gtk-lab Amazon S3 bucket called `saber-plish-barcodes`, click into 
 17) The file names of the final libraries will be printed. (e.g. `Final IMPLIED barcode library file: data/42mer_k12/42mer_k12_implied.fa`)
 
 18) The file name of the nanobody-probe-implied trio combinations will also be printed (e.g. `Final .tsv file with all NANOBODY-PROBE-IMPLIED barcode combinations: data/42mer_k12/42mer_k12_combi.tsv`)
+
+
+# Example runthrough with workflow.sh
+
+In this section, we will show an example of running the `workflow.sh` script. All user inputs are bolded will be **bolded** while all lines printed on the commandline will be in `codeblocks`.
+
