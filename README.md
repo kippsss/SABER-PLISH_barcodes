@@ -82,8 +82,8 @@ Lastly, from gtk-lab Amazon S3 bucket called `saber-plish-barcodes`, click into 
 In this section, we will show an example of running the `workflow.sh` script. All user inputs will be **bolded** while all lines printed on the commandline will be in `codeblocks`.
 
 **bash workflow.sh** \
-`STEP 1: Generating sequence libraries with SeqWalk` \
-`Length (L) of the sequences in the library? (must be an even number) :` **42** \
+`STEP 1: Generating sequence libraries with SeqWalk`      
+`Length (L) of the sequences in the library? (must be an even number) :` **42**. 
 `Length of sequences L = 42` \
 `Degree of orthogonality (k) ? : ` **13** \
 `Set SeqWalk RCfree argument to True or False? [t/f] (try to set 't' only for low values of L and/or k as this is computationally expensive) : ` **f** \
