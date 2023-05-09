@@ -87,16 +87,18 @@ In this section, we will show an example of running the `workflow.sh` script. Al
 `Length of sequences L = 42`   
 `Degree of orthogonality (k) ? : ` **13**     
 `Set SeqWalk RCfree argument to True or False? [t/f] (try to set 't' only for low values of L and/or k as this is computationally expensive) : ` **f**     
+<br/>
 `Starting SeqWalk for the following parameters:
         L=42, 
         k=13, 
         bases=ATCG, 
         prevented_patterns=['AAAA', 'TTTT', 'CCCC', 'GGGG'], 
         RCfree=False`  
+<br/>
 `SeqWalk completed!`  
 `Size of library: 1704096`  
 `Time taken: 108.13844680786133 seconds`   
-
+<br/>
 `STEP 2: Filtering base composition of sequences`  
 `Lower bound for NANOBODY barcode and PROBE barcode nucleotide composition in percentage (%) (e.g. 23.5): ` **23.5**  
 `Upper bound for NANOBODY barcode and PROBE barcode nucleotide composition in percentage (%) (e.g. 26.5): ` **26.5**    
@@ -104,5 +106,22 @@ In this section, we will show an example of running the `workflow.sh` script. Al
 `Size of library before filtering nucleotide composition: 1704096`  
 `Size of library after filtering nucleotide composition: 15787`
 <br/>
-`STEP 3: Align sequences to the human genome with Bowtie2 and remove any which align `
-
+`STEP 3: Align sequences to the human genome with Bowtie2 and remove any which align`  
+`Is the reference genome indexes at this location: ./reference_genomes/GRCh38.p14/GRCh38_index? [y/n] :` **y**
+`Time loading reference: 00:00:00`  
+`Time loading forward index: 00:00:02`  
+`Time loading mirror index: 00:00:00`  
+`Multiseed full-index search: 00:00:01`  
+`15787 reads; of these:`  
+  `15787 (100.00%) were unpaired; of these:`  
+`15781 (99.96%) aligned 0 times`  
+`4 (0.03%) aligned exactly 1 time`  
+`2 (0.01%) aligned >1 times`  
+`0.04% overall alignment rate`  
+`Time searching: 00:00:03`  
+`Overall time: 00:00:03`  
+<br/>
+`Number of sequences before bowtie2 alignment step: 15792`  
+`Number of sequences after bowtie2 alignment step: 15781`  
+<br/>
+`STEP 4: Remove subsequence reverse complements from existing library`
