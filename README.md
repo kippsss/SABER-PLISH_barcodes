@@ -8,7 +8,7 @@ The DNA barcode libraries generated are not uploaded here due to large file size
 
 # Requirements to satisfy
 
-First, ensure that you have all the python dependencies required for the entire workflow. This is listed in `requirements.txt`. To install them, simply input `pip install -r requirements.txt` into the commandline.
+Firstly, ensure that you have all the python dependencies required for the entire workflow. This is listed in `requirements.txt`. To install them, simply input `pip install -r requirements.txt` into the commandline.
 
 Secondly, ensure that you have Bowtie2 installed. Refer to Bowtie2 manual https://bowtie-bio.sourceforge.net/bowtie2/manual.shtml or this anaconda/bioconda page https://anaconda.org/bioconda/bowtie2 to get started on the installation.
 
