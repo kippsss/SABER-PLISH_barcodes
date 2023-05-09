@@ -164,3 +164,6 @@ In this section, we will show an example of running the `workflow.sh` script. Al
 `Final PROBE barcode library file: data/42mer_k13/42mer_k13_probe.fa`  
 `Final IMPLIED barcode library file: data/42mer_k13/42mer_k13_implied.fa`  
 `Final .tsv file with all NANOBODY-PROBE-IMPLIED barcode combinations: data/42mer_k13/42mer_k13_combi.tsv`  
+
+# Contact
+Any questions or feedback can be directed to `keithchewzk@u.nus.edu`.
