@@ -83,15 +83,21 @@ In this section, we will show an example of running the `workflow.sh` script. Al
 
 **bash workflow.sh** \
 `STEP 1: Generating sequence libraries with SeqWalk`      
-`Length (L) of the sequences in the library? (must be an even number) :` **42**. 
-`Length of sequences L = 42` \
-`Degree of orthogonality (k) ? : ` **13** \
-`Set SeqWalk RCfree argument to True or False? [t/f] (try to set 't' only for low values of L and/or k as this is computationally expensive) : ` **f** \
+`Length (L) of the sequences in the library? (must be an even number) :` **42**  
+`Length of sequences L = 42`   
+`Degree of orthogonality (k) ? : ` **13**     
+`Set SeqWalk RCfree argument to True or False? [t/f] (try to set 't' only for low values of L and/or k as this is computationally expensive) : ` **f**     
 `Starting SeqWalk for the following parameters:
         L=42, 
         k=13, 
         bases=ATCG, 
         prevented_patterns=['AAAA', 'TTTT', 'CCCC', 'GGGG'], 
-        RCfree=False`
+        RCfree=False`  
+`SeqWalk completed!`  
+`Size of library: 1704096`  
+`Time taken: 108.13844680786133 seconds`   
+
+`STEP 2: Filtering base composition of sequences`  
+`Lower bound for NANOBODY barcode and PROBE barcode nucleotide composition in percentage (%) (e.g. 23.5): ` **23.5**  
 
 
