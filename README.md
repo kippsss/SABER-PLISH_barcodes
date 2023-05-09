@@ -1,8 +1,6 @@
 # SABER-PLISH_barcodes
 
-
 This repository contains all the scripts used in the computational design of DNA barcode libraries for use in SABER-PLISH.
-
 
 The DNA barcode libraries generated are not uploaded here due to large file sizes. They will instead be uploaded to a private Amazon S3 bucket.
 
@@ -11,9 +9,7 @@ The DNA barcode libraries generated are not uploaded here due to large file size
 
 Firstly, ensure that you have all the python dependencies required for the entire workflow. This is listed in `requirements.txt`. To install them, simply input `pip install -r requirements.txt` into the commandline.
 
-
 Secondly, ensure that you have Bowtie2 installed. Refer to Bowtie2 manual https://bowtie-bio.sourceforge.net/bowtie2/manual.shtml or this anaconda/bioconda page https://anaconda.org/bioconda/bowtie2 to get started on the installation.
-
 
 Thirdly, ensure that you have at least the following scripts in the same directory:
 - `assign_bc.py`
@@ -24,7 +20,6 @@ Thirdly, ensure that you have at least the following scripts in the same directo
 - `get_unaligned.py`
 - `remove_rc.py`
 - `workflow.sh`
-
 
 Lastly, from gtk-lab Amazon S3 bucket called `saber-plish-barcodes`, click into the folder `reference_genomes` and download the folder in it called `GRCh38.p14/` (with all its contents). Put the folder in the directory called `reference_genomes` which should be in the same directory as `workflow.sh`. In other words, the directory tree should be as such:
 - `workflow.sh`
