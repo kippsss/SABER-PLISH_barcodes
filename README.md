@@ -113,7 +113,7 @@ In this section, we will show an example of running the `workflow.sh` script. Al
 `Time loading mirror index: 00:00:00`  
 `Multiseed full-index search: 00:00:01`  
 `15787 reads; of these:`  
-  `15787 (100.00%) were unpaired; of these:`  
+&nbsp;&nbsp;&nbsp;&nbsp;`15787 (100.00%) were unpaired; of these:`  
 `15781 (99.96%) aligned 0 times`  
 `4 (0.03%) aligned exactly 1 time`  
 `2 (0.01%) aligned >1 times`  
