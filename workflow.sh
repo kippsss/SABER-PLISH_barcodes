@@ -66,6 +66,7 @@ printf "\n"
 
 printf "STEP 6: Generate starting IMPLIED barcode library by cross-joining NANOBODY barcode and PROBE barcode libraries \n"
 python3 get_implied.py -n ${basedir}/${basename}_nb_pre.fa -p ${basedir}/${basename}_probe_pre.fa -o ${basedir}/${basename}_implied_pre.fa -t ${basedir}/${basename}_combi_pre.tsv
+printf "\n"
 
 printf "STEP 7: Align IMPLIED barcode sequences to the human genome with Bowtie2 and remove corresponding NANOBODY and PROBE barcodes whose IMPLIED barcode aligns  \n"
 bowtie2 -x ${ref_genome} -f ${basedir}/${basename}_implied_pre.fa --no-hd -t -k 100 --very-sensitive-local -S ${basedir}/${basename}_implied_pre_bt.sam
