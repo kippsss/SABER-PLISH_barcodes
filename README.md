@@ -104,7 +104,7 @@ In this section, we will show an example of running the `workflow.sh` script. Al
 `Upper bound for NANOBODY barcode and PROBE barcode nucleotide composition in percentage (%) (e.g. 26.5): ` **26.5**    
 `Base content filtering completed!`  
 `Size of library before filtering nucleotide composition: 1704096`  
-`Size of library after filtering nucleotide composition: 15787`
+`Size of library after filtering nucleotide composition: 15787`  
 <br/>
 `STEP 3: Align sequences to the human genome with Bowtie2 and remove any which align`  
 `Is the reference genome indexes at this location: ./reference_genomes/GRCh38.p14/GRCh38_index? [y/n] :` **y**  
