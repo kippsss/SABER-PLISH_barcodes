@@ -107,7 +107,7 @@ In this section, we will show an example of running the `workflow.sh` script. Al
 `Size of library after filtering nucleotide composition: 15787`
 <br/>
 `STEP 3: Align sequences to the human genome with Bowtie2 and remove any which align`  
-`Is the reference genome indexes at this location: ./reference_genomes/GRCh38.p14/GRCh38_index? [y/n] :` **y**
+`Is the reference genome indexes at this location: ./reference_genomes/GRCh38.p14/GRCh38_index? [y/n] :` **y**  
 `Time loading reference: 00:00:00`  
 `Time loading forward index: 00:00:02`  
 `Time loading mirror index: 00:00:00`  
