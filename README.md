@@ -20,6 +20,22 @@ Thirdly, ensure that you have at least the following scripts in the same directo
 - `remove_rc.py`
 - `workflow.sh`
 
+Lastly, from gtk-lab Amazon S3 bucket called `saber-plish-barcodes`, click into the folder `reference_genomes` and download the folder in it called `GRCh38.p14/` (with all its contents). Put the folder in the directory called `reference_genomes` which should be in the same directory as `workflow.sh`. In other words, the directory tree should be as such:
+- `workflow.sh`
+- `reference_genomes`
+  - `GRCh38.p14`
+    - `genome_assemblies_genome_fasta.tar`
+    - `GRCh38_index.1.bt2`
+    - `GRCh38_index.2.bt2`
+    - `GRCh38_index.3.bt2`
+    - `GRCh38_index.4.bt2`
+    - `GRCh38_index.rev.1.bt2`
+    - `GRCh38_index.rev.2.bt2`
+    - `GRCh38.fa`
+    - `md5checksums.txt`
+    - `README.txt`
+    - `report.txt`
+
 # Using workflow.sh to generate barcode libraries
 
 1) In the commandline, run `bash workflow.sh`.
