@@ -6,7 +6,7 @@ Documentation to improve its reusability has yet to be completed.
 
 The DNA barcode libraries generated are not uploaded here due to large file sizes. They will instead be uploaded to a private Amazon S3 bucket.
 
-# Using workflow.sh to generate (1) nanobody, (2) probe and (3) implied barcode libraries
+# Using workflow.sh to generate barcode libraries
 
 1) In the commandline, run `bash workflow.sh`.
 2) A prompt `Length (L) of the sequences in the library? (must be an even number)` will be shown.
