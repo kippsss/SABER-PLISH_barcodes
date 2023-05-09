@@ -102,7 +102,7 @@ In this section, we will show an example of running the `workflow.sh` script. Al
 `STEP 2: Filtering base composition of sequences`  
 `Lower bound for NANOBODY barcode and PROBE barcode nucleotide composition in percentage (%) (e.g. 23.5): ` **23.5**  
 `Upper bound for NANOBODY barcode and PROBE barcode nucleotide composition in percentage (%) (e.g. 26.5): ` **26.5**    
-`Base content filtering completed!`
+`Base content filtering completed!`  
 `Size of library before filtering nucleotide composition: 1704096`  
 `Size of library after filtering nucleotide composition: 15787`
 <br/>
@@ -124,7 +124,7 @@ In this section, we will show an example of running the `workflow.sh` script. Al
 `Number of sequences before bowtie2 alignment step: 15792`  
 `Number of sequences after bowtie2 alignment step: 15781`  
 <br/>
-`STEP 4: Remove subsequence reverse complements from existing library`
+`STEP 4: Remove subsequence reverse complements from existing library`  
 `Reversed complements have been removed!`  
 `Size of library before RC removal: 15781`  
 `Size of library after RC removal: 13085`  
