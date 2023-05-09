@@ -114,9 +114,9 @@ In this section, we will show an example of running the `workflow.sh` script. Al
 `Multiseed full-index search: 00:00:01`  
 `15787 reads; of these:`  
 &nbsp;&nbsp;&nbsp;&nbsp;`15787 (100.00%) were unpaired; of these:`  
-`15781 (99.96%) aligned 0 times`  
-`4 (0.03%) aligned exactly 1 time`  
-`2 (0.01%) aligned >1 times`  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`15781 (99.96%) aligned 0 times`  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`4 (0.03%) aligned exactly 1 time`  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`2 (0.01%) aligned >1 times`  
 `0.04% overall alignment rate`  
 `Time searching: 00:00:03`  
 `Overall time: 00:00:03`  
@@ -125,3 +125,42 @@ In this section, we will show an example of running the `workflow.sh` script. Al
 `Number of sequences after bowtie2 alignment step: 15781`  
 <br/>
 `STEP 4: Remove subsequence reverse complements from existing library`
+`Reversed complements have been removed!`  
+`Size of library before RC removal: 15781`  
+`Size of library after RC removal: 13085`  
+<br/>
+`STEP 5: Assign sequences to either NANOBODY barcode or PROBE barcode libraries (total assigned cannot exceed total number of available sequences)`  
+`Number of sequences to assign as NANOBODY barcodes: ` **85**  
+`Number of sequences to assign as PROBE barcodes: ` **13000**  
+`From library of size 13085, assigning top 13085`  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`sequences with highest complexity to nanobody barcode and ISH probe barcode libraries.`  
+`85 sequences has been assigned to nanobody barcode libraries.`  
+`13000 sequences has been assigned to ISH probe barcode libraries.`  
+<br/>
+`STEP 6: Generate starting IMPLIED barcode library by cross-joining NANOBODY barcode and PROBE barcode libraries`  
+`Number of Implied barcodes derived: 1105000`  
+<br/>
+`STEP 7: Align IMPLIED barcode sequences to the human genome with Bowtie2 and remove corresponding NANOBODY and PROBE barcodes whose IMPLIED barcode aligns`  
+`Time loading reference: 00:00:00`  
+`Time loading forward index: 00:00:01`  
+`Time loading mirror index: 00:00:01`  
+`Multiseed full-index search: 00:00:21`  
+`1105000 reads; of these:`  
+&nbsp;&nbsp;&nbsp;&nbsp;`1105000 (100.00%) were unpaired; of these:`  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`1104886 (99.99%) aligned 0 times`  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`110 (0.01%) aligned exactly 1 time`  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`4 (0.00%) aligned >1 times`  
+`0.01% overall alignment rate`  
+`Time searching: 00:00:23`  
+`Overall time: 00:00:23`  
+<br/>
+`Final NANOBODY barcode library count: 69`  
+`Final ISH PROBE barcode library count: 12889`  
+<br/>
+`STEP 8: Re-generate IMPLIED barcode library by cross-joining final NANOBODY barcode and final PROBE barcode libraries`  
+`Number of Implied barcodes derived: 889341`  
+<br/>
+`Final NANOBODY barcode library file: data/42mer_k13/42mer_k13_nb.fa`  
+`Final PROBE barcode library file: data/42mer_k13/42mer_k13_probe.fa`  
+`Final IMPLIED barcode library file: data/42mer_k13/42mer_k13_implied.fa`  
+`Final .tsv file with all NANOBODY-PROBE-IMPLIED barcode combinations: data/42mer_k13/42mer_k13_combi.tsv`  
